@@ -24,7 +24,7 @@ resource "aws_lambda_function" "this" {
   s3_key           = aws_s3_bucket_object.this.id
   source_code_hash = data.archive_file.this.output_base64sha256
 
-  function_name = var.unique_identifier
+  function_name = var.identifier
   handler       = "app.lambda_handler"
   role          = aws_iam_role.lambda.arn
   runtime       = "python3.9"
@@ -33,6 +33,6 @@ resource "aws_lambda_function" "this" {
 
 # Log group with minimum retention.
 resource "aws_cloudwatch_log_group" "this" {
-  name              = "/aws/lambda/${var.unique_identifier}"
+  name              = "/aws/lambda/${var.identifier}"
   retention_in_days = 1
 }

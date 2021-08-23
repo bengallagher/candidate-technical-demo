@@ -1,5 +1,5 @@
 resource "aws_api_gateway_rest_api" "this" {
-  name = var.unique_identifier
+  name = var.identifier
 
   endpoint_configuration {
     types = ["REGIONAL"]

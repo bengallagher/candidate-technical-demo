@@ -1,1 +1,1 @@
-variable "unique_identifier" {}
+variable "identifier" {}
